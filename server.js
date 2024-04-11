@@ -1,13 +1,17 @@
 const express = require('express');
 const app = express();
 app.use(express.json());
-const premResults = require('./prem-results-data.js')
+const cors = require('cors');
+app.use(cors());
+const premResults = require('./prem-results-data.js');
 const favPremPlayer = require('./fav-prem-player.js');
+const premStats = require('./prem-stats-data.js');
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3001);
 app.locals.title = 'Premier League Results';
 app.locals.premResults = premResults;
 app.locals.favPremPlayer = favPremPlayer;
+app.locals.premStats = premStats;
 
 app.get('/', (request, response) => {
   response.send('Prem Results');
@@ -28,7 +32,7 @@ app.post('/api/v1/favpremplayer', (request, response) => {
     app.locals.favPremPlayer.push(newFavAddition);
     response.status(201).send(newFavAddition);
   } else {
-    response.status(403).send({ error: `${newFavAddition.player} already exists within favorite players list.` });
+    response.status(422).send({ error: `${newFavAddition.player} already exists within favorite players list.` });
   }
   console.log(app.locals.favPremPlayer)
 });
