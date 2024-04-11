@@ -4,13 +4,13 @@ app.use(express.json());
 const cors = require('cors');
 app.use(cors());
 const premResults = require('./prem-results-data.js');
-const favPremPlayer = require('./fav-prem-player.js');
+const favPremPlayers = require('./fav-prem-players.js');
 const premStats = require('./prem-stats-data.js');
 
 app.set('port', process.env.PORT || 3001);
 app.locals.title = 'Premier League Results';
 app.locals.premResults = premResults;
-app.locals.favPremPlayer = favPremPlayer;
+app.locals.favPremPlayers = favPremPlayers;
 app.locals.premStats = premStats;
 
 app.get('/', (request, response) => {
@@ -19,6 +19,14 @@ app.get('/', (request, response) => {
 
 app.get('/api/v1/premresults', (request, response) => {
   response.send(app.locals.premResults)
+});
+
+app.get('/api/v1/favpremplayers', (request, response) => {
+  response.send(app.locals.favPremPlayers)
+});
+
+app.get('/api/v1/premstats', (request, response) => {
+  response.send(app.locals.premStats)
 });
 
 app.post('/api/v1/favpremplayer', (request, response) => {
