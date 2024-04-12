@@ -84,4 +84,14 @@ module.exports = [
         "numOfFavs": 10,
         "id": 18,
     },
+    {
+        "player": "Frank Lampard",
+        "numOfFavs": 7,
+        "id": 19,
+    },
+    {
+        "player": "Bukayo Saka",
+        "numOfFavs": 4,
+        "id": 20,
+    }
 ];
