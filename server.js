@@ -14,7 +14,7 @@ app.locals.favPremPlayers = favPremPlayers;
 app.locals.premStats = premStats;
 
 app.get('/', (request, response) => {
-  response.send('Prem Results');
+  response.send('Prem Data');
 });
 
 app.get('/api/v1/premresults', (request, response) => {
