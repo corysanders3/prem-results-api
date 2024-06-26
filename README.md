@@ -11,7 +11,7 @@ This server is deployed, but you can clone it down and run it locally as well. S
 
 ## Endpoints (if fetching from deployed server)
 ### GET all results
-URL: `https://prem-server-80f72a145ae6.herokuapp.com/api/v1/premresults`
+URL: `https://prem-results-api.vercel.app/api/v1/premresults`
 </br>
 </br>
 Sample Response (200):
@@ -49,7 +49,7 @@ Sample Response (200):
 ```
 
 ### GET top goal scorers each year
-URL: `https://prem-server-80f72a145ae6.herokuapp.com/api/v1/premstats`
+URL: `https://prem-results-api.vercel.app/api/v1/premstats`
 </br>
 </br>
 Sample Response (200):
